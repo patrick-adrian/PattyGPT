@@ -74,7 +74,7 @@ def sms_reply():
         total_cost = round(gpt_cost + sms_cost, 5)
 
         # Step 5: Append cost note to last SMS
-        cost_note = f"~ PatrickGPT 🤖 (GPT: ${gpt_cost}, SMS: ${sms_cost}, Total: ${total_cost})"
+        cost_note = f"~ PattyGPT 🤖 (GPT: ${gpt_cost}, SMS: ${sms_cost}, Total: ${total_cost})"
         available_space = CHUNK_SIZE - len(cost_note)
         chunks[-1] = chunks[-1][:available_space] + " " + cost_note
 
