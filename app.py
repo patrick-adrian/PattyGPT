@@ -10,7 +10,7 @@ load_dotenv()
 client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
 # Configuration
-ALLOWED_NUMBERS = ['+16478639456']  # Replace with your number
+ALLOWED_NUMBERS = ['+16478639456', '+16479042199', '+9056175814']  # Replace with your number
 MAX_SMS_CHUNKS = 3
 CHUNK_SIZE = 160
 SMS_COST_PER_SEGMENT = 0.0075
@@ -46,7 +46,7 @@ def sms_reply():
                 {
                     "role": "system",
                     "content": (
-                        "You are PatrickGPT, a concise assistant. Reply using plain text only. "
+                        "You are PattyGPT, a concise assistant. Reply using plain text only. "
                         "Avoid emojis, newlines, or special characters. Limit your response to 480 characters max."
                     )
                 },
@@ -59,7 +59,7 @@ def sms_reply():
         reply = sanitize_sms(reply)
 
         # Step 2: Reserve room for cost line
-        placeholder_cost_note = "~ PatrickGPT 🤖 (cost info)"
+        placeholder_cost_note = "~ PattyGPT 🤖 (cost info)"
         reserved_chars = len(placeholder_cost_note)
         max_reply_chars = (MAX_SMS_CHUNKS * CHUNK_SIZE) - reserved_chars
         reply = reply[:max_reply_chars]
